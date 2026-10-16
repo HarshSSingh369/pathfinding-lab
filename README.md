@@ -10,6 +10,7 @@ Algorithm, or A* explore the grid and reconstruct a route.
 - Draw or erase walls and weighted cells by dragging across the board.
 - Move the start and goal markers by dragging them.
 - Generate random walls or clear the board.
+- Generate a connected perfect maze with randomized depth-first backtracking.
 - Adjust the animation speed.
 - Review explored-node count, path length, path cost, and search time.
 - Use a custom binary min-heap for Dijkstra and A* priority queues.

@@ -56,6 +56,7 @@ input[type=range] { width: 100%; accent-color: var(--mint); height: 17px; }
 .button:disabled { opacity: .55; cursor: wait; }
 .primary { width: 100%; min-height: 39px; background: var(--mint); color: #10242b; }
 .primary span { margin-right: 7px; font-size: 9px; }
+.maze-button { width: 100%; min-height: 34px; margin-top: 8px; color: var(--mint); }
 .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
 .secondary { min-height: 33px; background: #24364c; color: #d9e5f2; border: 1px solid #364b63; }
 .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
