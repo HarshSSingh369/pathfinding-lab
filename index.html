@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="An interactive visual lab for BFS, Dijkstra's algorithm, and A* pathfinding.">
+  <title>Pathfinding Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Pathfinding Lab home">
+        <span class="brand-mark" aria-hidden="true">⌁</span>
+        <span>Pathfinding <b>Lab</b></span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> ALGORITHM PLAYGROUND</div>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow">GRAPH SEARCH · ROUTE PLANNING</p>
+        <h1>Find a way<br><span>through the grid.</span></h1>
+        <p class="lead">Build a maze, choose a search strategy, and watch the algorithm work its way to the goal.</p>
+      </div>
+      <div class="intro-stat"><span class="stat-orbit">A*</span><span>Three algorithms<br>One shared board</span></div>
+    </section>
+
+    <section class="workspace" aria-label="Pathfinding visualizer">
+      <aside class="panel">
+        <div class="panel-heading"><span class="step-index">01</span><div><h2>Configure</h2><p>Choose how to search</p></div></div>
+
+        <label class="field-label" for="algorithm">SEARCH ALGORITHM</label>
+        <select id="algorithm" class="select-control">
+          <option value="astar">A* Search</option>
+          <option value="dijkstra">Dijkstra's Algorithm</option>
+          <option value="bfs">Breadth-First Search</option>
+        </select>
+        <p id="algorithm-hint" class="hint">Uses distance-to-goal to guide the search. Finds a shortest weighted path.</p>
+
+        <label class="field-label" for="edit-mode">BOARD TOOL</label>
+        <select id="edit-mode" class="select-control">
+          <option value="wall">Draw walls</option>
+          <option value="weight">Place weights</option>
+          <option value="erase">Erase cells</option>
+        </select>
+        <p class="hint">Drag the start and goal markers to move them.</p>
+
+        <div class="speed-row"><label class="field-label" for="speed">ANIMATION SPEED</label><span id="speed-value">Fast</span></div>
+        <input id="speed" type="range" min="1" max="100" value="78" aria-label="Animation speed">
+
+        <div class="divider"></div>
+        <div class="panel-heading compact"><span class="step-index">02</span><div><h2>Run search</h2><p>Explore and compare</p></div></div>
+        <button id="run-button" class="button primary"><span aria-hidden="true">▶</span> Visualize path</button>
+        <div class="button-grid">
+          <button id="random-button" class="button secondary">Random walls</button>
+          <button id="clear-button" class="button secondary">Clear board</button>
+        </div>
+
+        <div class="divider"></div>
+        <div class="panel-heading compact"><span class="step-index">03</span><div><h2>Run metrics</h2><p>Results for this search</p></div></div>
+        <div class="metrics">
+          <div class="metric"><strong id="visited-count">—</strong><span>Nodes explored</span></div>
+          <div class="metric"><strong id="path-count">—</strong><span>Path length</span></div>
+          <div class="metric"><strong id="path-cost">—</strong><span>Path cost</span></div>
+          <div class="metric"><strong id="run-time">—</strong><span>Search time</span></div>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">Ready. Draw a maze or run a search.</p>
+      </aside>
+
+      <section class="board-panel">
+        <div class="board-toolbar">
+          <div><h2>Search space</h2><p>25 rows <span>×</span> 45 columns</p></div>
+          <div class="legend" aria-label="Cell legend">
+            <span><i class="legend-start">S</i>Start</span>
+            <span><i class="legend-goal">G</i>Goal</span>
+            <span><i class="legend-wall"></i>Wall</span>
+            <span><i class="legend-weight">5</i>Weight</span>
+          </div>
+        </div>
+        <div id="grid" class="grid" role="grid" aria-label="Pathfinding grid"></div>
+        <div class="board-footer"><span><kbd>Click + drag</kbd> to draw</span><span>Walls block movement · weights increase travel cost</span></div>
+      </section>
+    </section>
+
+    <section class="concepts">
+      <div><span class="concept-tag">BFS</span><h3>Breadth-First Search</h3><p>Explores evenly outward. Finds the fewest steps when every move has equal cost.</p></div>
+      <div><span class="concept-tag">Dijkstra</span><h3>Dijkstra's Algorithm</h3><p>Expands the lowest-cost route so far. Handles weighted cells and guarantees the cheapest path.</p></div>
+      <div><span class="concept-tag">A*</span><h3>A* Search</h3><p>Combines known travel cost with an estimate to the goal. Finds an optimal path with an admissible heuristic.</p></div>
+    </section>
+
+    <footer><span>PATHFINDING LAB</span><span>Built for learning algorithms by watching them work.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
